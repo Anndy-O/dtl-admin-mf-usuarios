@@ -1,0 +1,41 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-container">
+  <div class="box-login">
+    <div id="fumigador" class="fumigador">
+      <div class="titulo">
+        <p class="p1">DAILYTEK</p>
+        <p class="p2">Pest</p>
+      </div>
+      <img class="image" src="../../../../assets/login/fumigador.png" alt="Fumigador">
+    </div>
+    <div id="login" class="login">
+      <div class="titulo-login">
+        <p class="">Iniciar Sesión</p>
+      </div>
+      <div class="form-container">
+        <div class="inputs">
+          <label for="usuario">USUARIO</label>
+          <div class="input-container">
+            <img src="../../../../assets/login/usuario.png" alt="Icono" class="input-icon">
+            <input type="text" formControlName="usuario" class="form-control" id="usuario">
+          </div>
+          <div *ngIf="loginForm.get('usuario')?.invalid && loginForm.get('usuario')?.touched" class="text-danger">
+            Usuario es requerido y debe tener al menos 4 caracteres.
+          </div>
+        </div>
+        <div class="inputs">
+          <label for="clave">CONTRASEÑA</label>
+          <div class="input-container">
+            <img src="../../../../assets/login/clave.png" alt="Icono" class="input-icon">
+            <input type="password" formControlName="clave" class="form-control" id="clave">
+          </div>
+          <div *ngIf="loginForm.get('clave')?.invalid && loginForm.get('clave')?.touched" class="text-danger">
+            Clave es requerida y debe tener al menos 4 caracteres.
+          </div>
+        </div>
+      </div>
+      <div class="button-container">
+        <button type="submit" class="btn login-button rounded-pill">Iniciar Sesión</button>
+      </div>
+    </div>
+  </div>
+</form>

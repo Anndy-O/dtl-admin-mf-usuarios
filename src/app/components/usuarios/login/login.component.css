@@ -1,0 +1,165 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-image: url('../../../../assets/login/fondo.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.image {
+  width: 55%;
+}
+
+.box-login {
+  display: grid;
+  grid-template-columns: 1.0fr 1.0fr;
+  grid-template-rows: 1.2fr;
+  gap: 0px 0px;
+  grid-auto-flow: column;
+  align-content: center;
+  grid-template-areas:
+    ". .";
+  width: 48%;
+  height: 70%;
+}
+
+.fumigador {
+  background-color: rgba(149,176,133,255);
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-template-rows: 0.3fr 1.7fr;
+  justify-items: center;
+  align-items: center;
+  gap: 0px 0px;
+}
+
+.titulo {
+  margin: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 80px;
+  color: white
+}
+
+.titulo .p1 {
+  margin: 0;
+  padding: 10px;
+  padding-top: 50px;
+  padding-bottom: 0;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.titulo .p2 {
+  margin: 0;
+  padding: 0;
+  padding-left: 120px;
+  line-height: 35px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.login {
+  background-color: rgba(18,32,45,255);
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-template-rows: 0.8fr 1.3fr 0.9fr;
+  gap: -50px 0px;
+  justify-items: center;
+  align-items: center;
+}
+
+.titulo-login {
+  font-size: 30px;
+  color: rgb(192, 192, 192);
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  margin-top: 70px;
+}
+
+.button-container {
+  display: grid;
+  justify-items: center;
+  align-items: start;
+  width: 100%;
+  height: 100%;
+}
+
+.login-button {
+  font-size: large;
+  width: 50%;
+  height: 25%;
+  padding: 0;
+  background-color: rgba(149,176,133,255);
+  color: white;
+  border: none;
+}
+
+.login-button:hover {
+  background-color: #627955;
+}
+
+.form-container {
+  width: 90%;
+  margin-top: -100px;
+}
+
+.inputs {
+  color: white;
+  grid-auto-columns: 1fr;
+  grid-template-rows: 1.0fr 1.0fr;
+  gap: 0px 0px;
+  width: 100%;
+}
+
+.inputs input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 4px solid rgba(149,176,133,255);
+  color: white;
+  outline: none;
+  padding: 0;
+  padding-left: 33px;
+  padding-bottom: 3px;
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+.inputs input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.inputs input:focus {
+  background-color: transparent;
+  outline: none;
+  box-shadow: none;
+}
+
+.inputs label {
+  font-size: 21px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  margin-bottom: 0;
+  color: rgb(192, 192, 192);
+}
+
+.input-container {
+  position: relative;
+}
+
+.input-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-65%);
+  width: 22px;
+  height: 25px;
+}
