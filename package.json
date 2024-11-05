@@ -1,6 +1,6 @@
 {
-  "name": "dtl-admin-mf-usuarios",
-  "version": "0.0.0",
+  "name": "dtl-admin-mf-dailytek-pest",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
