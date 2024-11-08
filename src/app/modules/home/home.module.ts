@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
-import { UsuariosRoutingModule } from './usuarios.routing.module';
+import { HomeRoutingModule } from './home.routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 
@@ -12,9 +13,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    UsuariosRoutingModule,
+    HomeRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    SharedModule,
   ]
 })
-export class UsuariosModule { }
+export class HomeModule { }

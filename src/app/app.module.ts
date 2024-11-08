@@ -4,8 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing.module';
-import { UsuariosModule } from './components/usuarios/usuarios.module';
+import { HomeModule } from './modules/home/home.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    UsuariosModule,
+    HomeModule,
+    SharedModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule
