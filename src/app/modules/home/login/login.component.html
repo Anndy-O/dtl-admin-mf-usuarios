@@ -5,7 +5,7 @@
         <p class="p1">DAILYTEK</p>
         <p class="p2">Pest</p>
       </div>
-      <img class="image" src="../../../../assets/login/fumigador.png" alt="Fumigador">
+      <img class="image" src="../../../../assets/images/login/fumigador.png" alt="Fumigador">
     </div>
     <div id="login" class="login">
       <div class="titulo-login">
@@ -15,7 +15,7 @@
         <div class="inputs">
           <label for="usuario">USUARIO</label>
           <div class="input-container">
-            <img src="../../../../assets/login/usuario.png" alt="Icono" class="input-icon">
+            <img src="../../../../assets/images/login/usuario.png" alt="Icono" class="input-icon">
             <input type="text" formControlName="usuario" class="form-control" id="usuario">
           </div>
           <div *ngIf="loginForm.get('usuario')?.invalid && loginForm.get('usuario')?.touched" class="text-danger">
@@ -25,7 +25,7 @@
         <div class="inputs">
           <label for="clave">CONTRASEÑA</label>
           <div class="input-container">
-            <img src="../../../../assets/login/clave.png" alt="Icono" class="input-icon">
+            <img src="../../../../assets/images/login/clave.png" alt="Icono" class="input-icon">
             <input type="password" formControlName="clave" class="form-control" id="clave">
           </div>
           <div *ngIf="loginForm.get('clave')?.invalid && loginForm.get('clave')?.touched" class="text-danger">

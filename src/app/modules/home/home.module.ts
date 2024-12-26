@@ -4,12 +4,14 @@ import { LoginComponent } from './login/login.component';
 import { HomeRoutingModule } from './home.routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { DashBoardComponent } from './dashboard/dashboard.component';
 
 
 
 @NgModule({
   declarations: [
-    LoginComponent
+    LoginComponent,
+    DashBoardComponent
   ],
   imports: [
     CommonModule,

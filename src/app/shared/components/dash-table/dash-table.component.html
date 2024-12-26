@@ -1,0 +1,26 @@
+<div class="table-container">
+  <table class="custom-table">
+    <thead [ngStyle]="{'background-color': headerColor}" class="table-header">
+      <tr>
+        <th class="table-header-cell">ID</th>
+        <th class="table-header-cell">Nombre</th>
+        <th class="table-header-cell">Fecha</th>
+        <th class="table-header-cell">Responsable</th>
+      </tr>
+    </thead>
+    <tbody class="table-body">
+      <tr *ngFor="let item of paginatedData" class="table-row">
+        <td class="table-cell">{{ item.id }}</td>
+        <td class="table-cell">{{ item.nombre }}</td>
+        <td class="table-cell">{{ item.fecha }}</td>
+        <td class="table-cell">{{ item.responsable }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="pagination">
+    <button class="pagination-btn" (click)="previousPage()" [disabled]="currentPage === 1">Anterior</button>
+    <span class="pagination-info">Página {{ currentPage }} de {{ totalPages() }}</span>
+    <button class="pagination-btn" (click)="nextPage()" [disabled]="currentPage === totalPages()">Siguiente</button>
+  </div>
+</div>

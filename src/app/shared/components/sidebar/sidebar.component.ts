@@ -3,13 +3,11 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'dtl-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css']
+  styleUrls: ['./sidebar.component.css'],
 })
-export class SidebarComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+export class SidebarComponent {
+  menuItems = [
+    { icon: 'fa fa-home', text: 'Inicio' },
+    { icon: 'fa fa-cog', text: 'Configuración' },
+  ];
 }

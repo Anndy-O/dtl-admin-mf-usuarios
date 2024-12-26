@@ -1,13 +1,36 @@
-<div class="container">
-  <div>
-    <dtl-sidebar></dtl-sidebar>
+<div class="dash-container">
+  <div class="dash">
+    <div class="dash-side">
+      <dtl-sidebar></dtl-sidebar>
+    </div>
+
+    <div class="dash-tables">
+
+        <dash-table
+          [data]="tableData[0]"
+          [headerColor]="'#007BFF'">
+        </dash-table>
+
+        <dash-table
+          [data]="tableData[1]"
+          [headerColor]="'#007BFF'">
+        </dash-table>
+
+        <dash-table
+          [data]="tableData[2]"
+          [headerColor]="'#007BFF'">
+        </dash-table>
+
+        <dash-table
+          [data]="tableData[3]"
+          [headerColor]="'#007BFF'">
+        </dash-table>
+    </div>
+
+    <div class="dash-metas">
+
+    </div>
   </div>
 
-  <div class="row">
-
-  </div>
-
-  <div class="row">
-
-  </div>
+  <dtl-footer></dtl-footer>
 </div>

@@ -1,3 +1,24 @@
-<p>
-  sidebar works!
-</p>
+<div class="sidebar">
+  <div class="user-section">
+    <div class="user-icon">
+      <i class="fa fa-user"></i>
+    </div>
+    <span class="tooltip">Usuario</span>
+  </div>
+
+  <div class="menu-items">
+    <div class="menu-item" *ngFor="let item of menuItems">
+      <button>
+        <i class="{{ item.icon }}"></i>
+        <span class="tooltip">{{ item.text }}</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="logout-section">
+    <button>
+      <i class="fa fa-sign-out"></i>
+      <span class="tooltip">Cerrar sesión</span>
+    </button>
+  </div>
+</div>
