@@ -8,7 +8,7 @@ import { JwtResponse } from '../../interface/auth-interfaces/jwt-response.interf
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:8002/dtl/auth/login';
+  private apiUrl = '/security/dtl/auth/login';
 
   constructor(private http: HttpClient) {}
 

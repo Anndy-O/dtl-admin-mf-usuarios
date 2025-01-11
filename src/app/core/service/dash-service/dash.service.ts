@@ -8,8 +8,8 @@ import { DashOrdenServicio } from '../../interface/Dashboard/dash-orden-servicio
   providedIn: 'root',
 })
 export class DashService {
-  private readonly baseUrlTareas = 'http://localhost:8001/admin-comunes/tareas';
-  private readonly baseUrlOrdenes = 'http://localhost:8003/admin-ordenes-servicios';
+  private readonly baseUrlTareas = '/comunes/admin-comunes/tareas'; // Cambiado
+  private readonly baseUrlOrdenes = '/ventas/admin-ordenes-servicios'; // Cambiado
 
   constructor(private http: HttpClient) {}
 
@@ -18,14 +18,14 @@ export class DashService {
   }
 
   listarTareasPendientes(): Observable<DashTareas[]> {
-    return this.http.get<DashTareas[]>(`${this.baseUrlTareas}/listar-tareas-pendientes`);
+    return this.http.get<DashTareas[]>(`${this.baseUrlTareas}/listar-tareas-pendientes`, { withCredentials: true });
   }
 
   listarOrdenesServicios(): Observable<DashOrdenServicio[]> {
-    return this.http.get<DashOrdenServicio[]>(`${this.baseUrlOrdenes}/servicio/listar`);
+    return this.http.get<DashOrdenServicio[]>(`${this.baseUrlOrdenes}/servicio/listar`, { withCredentials: true });
   }
 
   listarOrdenesServiciosPorFecha(): Observable<DashOrdenServicio[]> {
-    return this.http.get<DashOrdenServicio[]>(`${this.baseUrlOrdenes}/servicio/servicios-proximos`);
+    return this.http.get<DashOrdenServicio[]>(`${this.baseUrlOrdenes}/servicio/servicios-proximos`, { withCredentials: true });
   }
 }
