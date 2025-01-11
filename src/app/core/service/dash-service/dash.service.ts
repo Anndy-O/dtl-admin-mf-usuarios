@@ -14,7 +14,7 @@ export class DashService {
   constructor(private http: HttpClient) {}
 
   listarTareasHoy(): Observable<DashTareas[]> {
-    return this.http.get<DashTareas[]>(`${this.baseUrlTareas}/listar-tareas-hoy`);
+    return this.http.get<DashTareas[]>(`${this.baseUrlTareas}/listar-tareas-hoy`, { withCredentials: true });
   }
 
   listarTareasPendientes(): Observable<DashTareas[]> {

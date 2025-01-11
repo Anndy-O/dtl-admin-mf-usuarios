@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/service/auth-service/auth.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   errorMessage: string | null = null;
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
     this.loginForm = this.fb.group({});
   }
 
@@ -31,7 +32,7 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       this.authService.login(this.loginForm.value).subscribe({
         next: (response) => {
-          console.log('Login exitoso:', response);
+          this.router.navigate(['/dashboard']);
         },
         error: (error) => {
           this.errorMessage = 'Error de autenticación';
