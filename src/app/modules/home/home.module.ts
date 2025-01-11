@@ -5,13 +5,17 @@ import { HomeRoutingModule } from './home.routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { DashBoardComponent } from './dashboard/dashboard.component';
+import { RegistroUsuarioComponent } from './registros/registro-usuario/registro-usuario.component';
+import { RegistroEmpleadoComponent } from './registros/registro-empleado/registro-empleado.component';
 
 
 
 @NgModule({
   declarations: [
     LoginComponent,
-    DashBoardComponent
+    DashBoardComponent,
+    RegistroUsuarioComponent,
+    RegistroEmpleadoComponent
   ],
   imports: [
     CommonModule,

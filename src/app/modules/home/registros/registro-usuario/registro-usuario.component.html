@@ -1,0 +1,25 @@
+<div class="user-container">
+  <div class="container mt-5">
+    <h2>Usuarios Registrados </h2>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Codigo de Empleado</th>
+          <th>usuario</th>
+          <th>Cargo</th>
+          <th>Activo</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let usuario of usuarios">
+          <td>{{ usuario.codigoEmpleado }}</td>
+          <td>{{ usuario.nombre }}</td>
+          <td>{{ usuario.cargo }}</td>
+          <td>{{ usuario.oficina.activo }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <dtl-footer></dtl-footer>
+</div>
