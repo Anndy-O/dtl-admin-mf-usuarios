@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { DashTableData } from 'src/app/core/interface/Dashboard/dash-table-data';
 
 @Component({
@@ -6,9 +6,10 @@ import { DashTableData } from 'src/app/core/interface/Dashboard/dash-table-data'
   templateUrl: './dash-table.component.html',
   styleUrls: ['./dash-table.component.css']
 })
-export class DashTableComponent implements OnInit {
+export class DashTableComponent implements OnChanges {
   @Input() data: DashTableData[] = [];
   @Input() headerColor: string = '#000000';
+  @Input() tableName: string = 'NOMBRE TABLA';
 
   currentPage: number = 1; // Página actual
   itemsPerPage: number = 3 ; // Número de registros por página
@@ -16,7 +17,7 @@ export class DashTableComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {
+  ngOnChanges(changes: SimpleChanges): void {
     this.updatePaginatedData();
   }
 

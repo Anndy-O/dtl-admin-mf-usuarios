@@ -5,31 +5,36 @@
     </div>
 
     <div class="dash-tables">
+      <dash-table
+        [tableName]="'TAREAS DEL DIA'"
+        [data]="tableData[0]"
+        [headerColor]="'#007BFF'"
+      >
+      </dash-table>
 
-        <dash-table
-          [data]="tableData[0]"
-          [headerColor]="'#007BFF'">
-        </dash-table>
+      <dash-table
+        [tableName]="'TAREAS PENDIENTES'"
+        [data]="tableData[1]"
+        [headerColor]="'#007BFF'"
+      >
+      </dash-table>
 
-        <dash-table
-          [data]="tableData[1]"
-          [headerColor]="'#007BFF'">
-        </dash-table>
+      <dash-table
+        [tableName]="'ORDENES SERVICIOS'"
+        [data]="tableData[2]"
+        [headerColor]="'#007BFF'"
+      >
+      </dash-table>
 
-        <dash-table
-          [data]="tableData[2]"
-          [headerColor]="'#007BFF'">
-        </dash-table>
-
-        <dash-table
-          [data]="tableData[3]"
-          [headerColor]="'#007BFF'">
-        </dash-table>
+      <dash-table
+        [tableName]="'PROXIMAS ORDENES'"
+        [data]="tableData[3]"
+        [headerColor]="'#007BFF'"
+      >
+      </dash-table>
     </div>
 
-    <div class="dash-metas">
-
-    </div>
+    <div class="dash-metas"></div>
   </div>
 
   <dtl-footer></dtl-footer>

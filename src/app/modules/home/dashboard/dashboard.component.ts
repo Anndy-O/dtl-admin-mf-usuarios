@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { DashTableData } from 'src/app/core/interface/Dashboard/dash-table-data';
 import { DashTareas } from 'src/app/core/interface/Dashboard/dash-tareas';
 import { DashOrdenServicio } from 'src/app/core/interface/Dashboard/dash-orden-servicio';
@@ -12,64 +12,48 @@ import { DashService } from 'src/app/core/service/dash-service/dash.service';
 export class DashBoardComponent implements OnInit {
 
   // Lista principal que contiene sublistas de DashTableData
-  tableData: DashTableData[][] = [];
+  tableData: DashTableData[][] = [[], [], [], []];
 
-  constructor(private dashService: DashService) {}
+  constructor(private dashService: DashService, private cdr: ChangeDetectorRef) { }
 
   ngOnInit() {
     this.cargarDatos();
   }
 
   cargarDatos() {
-    // Lista de sublistas de DashTableData
-    const tareasHoy: DashTableData[] = [];
-    const tareasPendientes: DashTableData[] = [];
-    const ordenesServicios: DashTableData[] = [];
-    const ordenesProximas: DashTableData[] = [];
-
-    // Obtener tareas de hoy y asignar a su sublista
     this.dashService.listarTareasHoy().subscribe({
       next: (data: DashTareas[]) => {
-        tareasHoy.push(...data.map(tarea => this.mapTareasToTableData(tarea)));
-        this.tableData.push(tareasHoy); // Asignar la sublista de tareas hoy
+        this.updateTableData(0, data.map(t => this.mapTareasToTableData(t)));
       },
-      error: (err) => {
-        console.error('Error al obtener tareas de hoy:', err);
-      }
+      error: (err) => console.error('Error al obtener tareas de hoy:', err)
     });
 
-    // Obtener tareas pendientes y asignar a su sublista
     this.dashService.listarTareasPendientes().subscribe({
       next: (data: DashTareas[]) => {
-        tareasPendientes.push(...data.map(tarea => this.mapTareasToTableData(tarea)));
-        this.tableData.push(tareasPendientes); // Asignar la sublista de tareas pendientes
+        this.updateTableData(1, data.map(t => this.mapTareasToTableData(t)));
       },
-      error: (err) => {
-        console.error('Error al obtener tareas pendientes:', err);
-      }
+      error: (err) => console.error('Error al obtener tareas pendientes:', err)
     });
 
-    // Obtener órdenes de servicio y asignar a su sublista
     this.dashService.listarOrdenesServicios().subscribe({
       next: (data: DashOrdenServicio[]) => {
-        ordenesServicios.push(...data.map(orden => this.mapOrdenesToTableData(orden)));
-        this.tableData.push(ordenesServicios); // Asignar la sublista de órdenes de servicio
+        this.updateTableData(2, data.map(o => this.mapOrdenesToTableData(o)));
       },
-      error: (err) => {
-        console.error('Error al obtener órdenes de servicio:', err);
-      }
+      error: (err) => console.error('Error al obtener órdenes de servicio:', err)
     });
 
-    // Obtener órdenes próximas y asignar a su sublista
     this.dashService.listarOrdenesServiciosPorFecha().subscribe({
       next: (data: DashOrdenServicio[]) => {
-        ordenesProximas.push(...data.map(orden => this.mapOrdenesToTableData(orden)));
-        this.tableData.push(ordenesProximas); // Asignar la sublista de órdenes próximas
+        this.updateTableData(3, data.map(o => this.mapOrdenesToTableData(o)));
       },
-      error: (err) => {
-        console.error('Error al obtener órdenes próximas:', err);
-      }
+      error: (err) => console.error('Error al obtener órdenes próximas:', err)
     });
+  }
+
+  updateTableData(index: number, newData: DashTableData[]) {
+    this.tableData[index] = newData;
+    this.tableData = [...this.tableData]; // Forzar nueva referencia
+    this.cdr.detectChanges(); // Forzar detección de cambios
   }
 
   /**
