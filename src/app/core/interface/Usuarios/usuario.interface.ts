@@ -1,7 +1,7 @@
-import { Oficina } from './../Comunes/oficina';
+
 export interface Usuario {
   codigoEmpleado: number;
-  nombre: string;
+  usuario: string;
   cargo: string;
-  oficina:Oficina;
+  activo: string;
 }

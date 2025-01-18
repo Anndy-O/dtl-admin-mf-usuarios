@@ -1,36 +1,29 @@
 import { Usuario } from 'src/app/core/interface/Usuarios/usuario.interface';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError, Observable, throwError } from 'rxjs';
-import { AuthService } from '../auth-service/auth.service';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Empleado } from '../../interface/Comunes/empleado';
+import { UsuarioRequest } from '../../interface/Usuarios/usuario.request';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UsuarioService {
-  private readonly baseUrl = 'http://localhost:8000/admin-usuarios'; // URL de tu API
-  private readonly datosEmpleadoUrl = 'assets/datosEmpleado.json'; // URL del archivo JSON
 
+  private readonly baseUrl = '/usuarios/admin-usuarios'; // URL de tu API
 
-
-  constructor(private http: HttpClient, private authService: AuthService) {}
+  constructor(private http: HttpClient) {}
 
   obtenerUsuarios(): Observable<Usuario[]> {
-    const token = this.authService.getToken();
-    console.log('Obteniendo usuarios', token);
-    return this.http.get<Usuario[]>(this.datosEmpleadoUrl);
+      return this.http.get<Usuario[]>(`${this.baseUrl}/listar-usuarios`, { withCredentials: true });
+  }
 
+  obtenerEmpleados(): Observable<Empleado[]> {
+    return this.http.get<Empleado[]>(`${this.baseUrl}/listar-empleados`, { withCredentials: true });
+  }
 
-    // const headers = new HttpHeaders({Authorization: `Bearer ${token}`});
-    // return this.http.get<Usuario[]>(`${this.baseUrl}/listar-empleados`, {headers}).pipe(
-    //   catchError((error) => {
-    //     console.error('Error al obtener el detalle de la cotización:', error);
-    //     return throwError(
-    //       () => new Error('Error al obtener el detalle de la cotización.')
-    //     );
-    //   })
-
-    // );
+  crearUsuario(usuarioRequest: UsuarioRequest): Observable<Usuario> {
+    return this.http.post<Usuario>(`${this.baseUrl}/crear-usuario`, usuarioRequest, { withCredentials: true });
   }
 }
 

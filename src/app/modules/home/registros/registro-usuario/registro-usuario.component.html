@@ -1,25 +1,73 @@
-<div class="user-container">
-  <div class="container mt-5">
-    <h2>Usuarios Registrados </h2>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Codigo de Empleado</th>
-          <th>usuario</th>
-          <th>Cargo</th>
-          <th>Activo</th>
+<form [formGroup]="usuarioForm" (ngSubmit)="crearUsuario()" class="user-container">
+  <div class="container">
+    <div>
+      <div class="form-group">
+        <label for="codigoEmpleado">Código de Empleado</label>
+        <input id="codigoEmpleado" formControlName="codigoEmpleado" type="text" class="form-control"
+          placeholder="Ingrese el código de empleado" />
+        <div *ngIf="usuarioForm.get('codigoEmpleado')?.invalid && usuarioForm.get('codigoEmpleado')?.touched"
+          class="error">
+          <small *ngIf="usuarioForm.get('codigoEmpleado')?.hasError('required')">El código de empleado es
+            requerido.</small>
+          <small *ngIf="usuarioForm.get('codigoEmpleado')?.hasError('pattern')">El código de empleado debe ser
+            numérico.</small>
+        </div>
+      </div>
 
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let usuario of usuarios">
-          <td>{{ usuario.codigoEmpleado }}</td>
-          <td>{{ usuario.nombre }}</td>
-          <td>{{ usuario.cargo }}</td>
-          <td>{{ usuario.oficina.activo }}</td>
-        </tr>
-      </tbody>
-    </table>
+      <div class="form-group">
+        <label for="usuario">Usuario</label>
+        <input id="usuario" formControlName="usuario" type="text" class="form-control"
+          placeholder="Ingrese el nombre de usuario" />
+        <div *ngIf="usuarioForm.get('usuario')?.invalid && usuarioForm.get('usuario')?.touched" class="error">
+          <small *ngIf="usuarioForm.get('usuario')?.hasError('required')">El usuario es requerido.</small>
+          <small *ngIf="usuarioForm.get('usuario')?.hasError('minlength')">El usuario debe tener al menos 3
+            caracteres.</small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="clave">Clave</label>
+        <input id="clave" formControlName="clave" type="password" class="form-control" placeholder="Ingrese la clave" />
+        <div *ngIf="usuarioForm.get('clave')?.invalid && usuarioForm.get('clave')?.touched" class="error">
+          <small *ngIf="usuarioForm.get('clave')?.hasError('required')">La clave es requerida.</small>
+          <small *ngIf="usuarioForm.get('clave')?.hasError('minlength')">La clave debe tener al menos 6
+            caracteres.</small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="cargo">Cargo</label>
+        <input id="cargo" formControlName="cargo" type="text" class="form-control" placeholder="Ingrese el cargo" />
+        <div *ngIf="usuarioForm.get('cargo')?.invalid && usuarioForm.get('cargo')?.touched" class="error">
+          <small *ngIf="usuarioForm.get('cargo')?.hasError('required')">El cargo es requerido.</small>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary" [disabled]="usuarioForm.invalid">
+        Guardar
+      </button>
+    </div>
+    <div>
+      <h2>Usuarios Registrados </h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Codigo de Empleado</th>
+            <th>usuario</th>
+            <th>Cargo</th>
+            <th>Activo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let usuario of usuarios">
+            <td>{{ usuario.codigoEmpleado }}</td>
+            <td>{{ usuario.usuario }}</td>
+            <td>{{ usuario.cargo }}</td>
+            <td>{{ usuario.activo }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
   <dtl-footer></dtl-footer>
-</div>
+</form>

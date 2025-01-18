@@ -1,59 +1,18 @@
 .user-container {
   display: grid;
-  height: 100vh;
-  grid-template-rows: 1fr auto;
+  width: 100%;
+  height: 100%;
+  grid-template-rows: 1fr 1fr;
+  grid-auto-columns: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
   grid-template-areas:
-    "content"
-    "footer";
-  justify-items: start; /* Cambiado a 'start' para alinear a la izquierda */
-
+    ""
+    "";
 }
 
 .container {
-  width: 90%; /* Se ajusta al ancho de la pantalla */
-  max-width: 1200px; /* Máximo ancho en pantallas grandes */
-  overflow-x: auto; /* Scroll horizontal para evitar recortes */
-  margin-left: 0; /* Asegura que esté alineado a la izquierda */
-}
-
-.dash-container {
   display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 16px;
-  align-items: start; /* Asegura alineación superior */
-}
-
-.dash {
-  display: grid;
-  grid-template-areas:
-    "dash-side dash-tables"
-    "dash-side dash-metas";
-  grid-template-columns: auto 1fr;
-  align-items: start; /* Alinea todo a la izquierda */
-}
-
-.dash-side,
-.dash-tables,
-.dash-metas {
-  text-align: left; /* Alinea el texto a la izquierda */
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  text-align: left; /* Asegura que las tablas estén alineadas a la izquierda */
-}
-
-thead th {
-  background-color: #C4DCB7;
-  padding: 8px;
-}
-
-tbody td {
-  padding: 8px;
-  border-top: 1px solid #dee2e6;
-}
-
-table tr:nth-child(even) {
-  background-color: #f2f2f2;
+  grid-template-columns: 1fr 1fr;
+  gap: 0px 0px;
 }
