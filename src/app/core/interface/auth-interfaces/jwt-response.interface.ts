@@ -2,7 +2,8 @@ export interface JwtResponse {
   token: string;
   empresaId: number;
   oficinaId: number;
-  codigoEmleado: string;
+  codigoEmpleado: string;
+  usuario: string;
   cargo: string;
   type: string;
 }

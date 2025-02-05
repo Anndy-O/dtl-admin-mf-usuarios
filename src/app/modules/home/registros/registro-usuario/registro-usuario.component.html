@@ -1,10 +1,14 @@
 <form [formGroup]="usuarioForm" (ngSubmit)="crearUsuario()" class="user-container">
   <div class="container">
     <div>
+      <h2>Crear Usuario</h2>
       <div class="form-group">
         <label for="codigoEmpleado">Código de Empleado</label>
-        <input id="codigoEmpleado" formControlName="codigoEmpleado" type="text" class="form-control"
+        <div class="search-field">
+          <input id="codigoEmpleado" formControlName="codigoEmpleado" type="text" class="form-control"
           placeholder="Ingrese el código de empleado" />
+          <button (click)="openModal()">buscar</button>
+        </div>
         <div *ngIf="usuarioForm.get('codigoEmpleado')?.invalid && usuarioForm.get('codigoEmpleado')?.touched"
           class="error">
           <small *ngIf="usuarioForm.get('codigoEmpleado')?.hasError('required')">El código de empleado es
@@ -71,3 +75,10 @@
   </div>
   <dtl-footer></dtl-footer>
 </form>
+
+<dtl-modal-empleados
+  *ngIf="isModalOpen"
+  [data]="modalData"
+  (close)="handleModalClose()"
+  (selectedCode)="handleSelectedCode($event)"
+></dtl-modal-empleados>

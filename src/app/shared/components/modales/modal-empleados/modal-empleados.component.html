@@ -1,3 +1,44 @@
-<p>
-  modal-empleados works!
-</p>
+<div class="modal-overlay" (click)="closeModal()"></div>
+<div class="modal-container">
+  <h2>Detalle de datos</h2>
+
+  <!-- Campos de filtro -->
+  <div class="filter-container">
+    <input
+      type="text"
+      [(ngModel)]="codigoFilter"
+      (input)="applyCodigoFilter()"
+      placeholder="Filtrar por código"
+      class="filter-input"
+    />
+    <input
+      type="text"
+      [(ngModel)]="nombreFilter"
+      (input)="applyNombreFilter()"
+      placeholder="Filtrar por nombre"
+      class="filter-input"
+    />
+  </div>
+
+  <!-- Tabla de datos -->
+  <table>
+    <thead>
+      <tr>
+        <th>Código</th>
+        <th>Nombre</th>
+        <th>Cargo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let item of filteredData"
+        (click)="selectRow(item)"
+        [class.selected]="selectedRow?.codigoEmpleado === item.codigoEmpleado"
+      >
+        <td>{{ item.codigoEmpleado }}</td>
+        <td>{{ item.nombre }}</td>
+        <td>{{ item.cargo }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

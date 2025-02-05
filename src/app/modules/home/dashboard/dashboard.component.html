@@ -8,33 +8,35 @@
       <dash-table
         [tableName]="'TAREAS DEL DIA'"
         [data]="tableData[0]"
-        [headerColor]="'#007BFF'"
+        [headerColor]="'#649781'"
       >
       </dash-table>
 
       <dash-table
         [tableName]="'TAREAS PENDIENTES'"
         [data]="tableData[1]"
-        [headerColor]="'#007BFF'"
+        [headerColor]="'#43a9bb'"
       >
       </dash-table>
 
       <dash-table
         [tableName]="'ORDENES SERVICIOS'"
         [data]="tableData[2]"
-        [headerColor]="'#007BFF'"
+        [headerColor]="'#43a9bb'"
       >
       </dash-table>
 
       <dash-table
         [tableName]="'PROXIMAS ORDENES'"
         [data]="tableData[3]"
-        [headerColor]="'#007BFF'"
+        [headerColor]="'#649781'"
       >
       </dash-table>
     </div>
 
-    <div class="dash-metas"></div>
+    <div class="dash-metas">
+      <dtl-metricas></dtl-metricas>
+    </div>
   </div>
 
   <dtl-footer></dtl-footer>

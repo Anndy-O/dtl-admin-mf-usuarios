@@ -23,7 +23,7 @@ export class UsuarioService {
   }
 
   crearUsuario(usuarioRequest: UsuarioRequest): Observable<Usuario> {
-    return this.http.post<Usuario>(`${this.baseUrl}/crear-usuario`, usuarioRequest, { withCredentials: true });
+    return this.http.post<Usuario>(`${this.baseUrl}/registrar-usuario`, usuarioRequest, { withCredentials: true });
   }
 }
 

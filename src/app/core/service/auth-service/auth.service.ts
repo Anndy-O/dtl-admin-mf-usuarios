@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
 import { Auth } from '../../interface/auth-interfaces/auth.interface';
 import { JwtResponse } from '../../interface/auth-interfaces/jwt-response.interface';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import { JwtResponse } from '../../interface/auth-interfaces/jwt-response.interf
 export class AuthService {
   private apiUrl = '/security/dtl/auth/login';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   login(authData: Auth): Observable<JwtResponse> {
     return this.http.post<JwtResponse>(this.apiUrl, authData).pipe(
@@ -34,8 +35,9 @@ export class AuthService {
     return user ? user.token : null;
   }
 
-  logout(): void {
+  logOut(): void {
     localStorage.removeItem('user');
+    this.router.navigate(['/login']);
   }
 
   isAuthenticated(): boolean {
