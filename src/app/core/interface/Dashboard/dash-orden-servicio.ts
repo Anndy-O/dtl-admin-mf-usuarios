@@ -1,15 +1,15 @@
-import { Empleado } from "../Comunes/empleado";
-import { Empresa } from "../Comunes/empresa";
-import { Oficina } from "../Comunes/oficina";
+import { Empleado } from "../Comunes/empleado.interface";
+import { Empresa } from "../Comunes/empresa.interface";
+import { Oficina } from "../Comunes/oficina.interface";
 
 export interface DashOrdenServicio {
   id: number;
   numero: string;
   estatus: string;
   codigo: string;
-  fechaServicio: string; // Usar formato ISO para fechas
-  horaInicio: string; // Usar formato HH:mm:ss para horas
-  horaFin: string; // Usar formato HH:mm:ss para horas
+  fechaServicio: string;
+  horaInicio: string;
+  horaFin: string;
   duracionEstimada: string;
   tipoServicioId: number[];
   contactoServicio: string;

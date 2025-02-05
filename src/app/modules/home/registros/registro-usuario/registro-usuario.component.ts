@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from 'src/app/core/service/user-service/user.service';
 import { Usuario } from 'src/app/core/interface/Usuarios/usuario.interface';
-import { Empleado } from 'src/app/core/interface/Comunes/empleado';
+import { Empleado } from 'src/app/core/interface/Comunes/empleado.interface';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UsuarioRequest } from 'src/app/core/interface/Usuarios/usuario.request';
+import { UsuarioRequest } from 'src/app/core/interface/Usuarios/requests/usuario.request.interface';
 import { LocalStorageDataService } from 'src/app/core/service/comunes-service/local-storage-data.service';
 
 @Component({

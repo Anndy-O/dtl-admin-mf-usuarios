@@ -6,6 +6,7 @@ import { DashBoardComponent } from './dashboard/dashboard.component';
 import { AuthGuard } from 'src/app/core/guards/auth.guard';
 import { RegistroEmpleadoComponent } from './registros/registro-empleado/registro-empleado.component';
 import { RegistroUsuarioComponent } from './registros/registro-usuario/registro-usuario.component';
+import { RegistrarClientesComponent } from './registros/registrar-clientes/registrar-clientes.component';
 
 
 const routes: Routes = [
@@ -17,7 +18,6 @@ const routes: Routes = [
     path: '',
     canActivate: [AuthGuard],
     children: [
-
       {
         path: 'dashboard',
         component: DashBoardComponent,
@@ -31,8 +31,12 @@ const routes: Routes = [
         component: RegistroUsuarioComponent,
       },
       {
+        path: 'registro-clientes',
+        component: RegistrarClientesComponent,
+      },
+      {
         path: '**',
-        redirectTo: ''
+        redirectTo: 'dashboard'
       },
     ]
   },

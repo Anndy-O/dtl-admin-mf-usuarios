@@ -6,6 +6,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ModalEmpleadosComponent } from './components/modales/modal-empleados/modal-empleados.component';
 import { FormsModule } from '@angular/forms';
 import { MetricasComponent } from './components/metricas/metricas.component';
+import { TablaClientesComponent } from './components/tabla-clientes/tabla-clientes.component';
+import { TablaClientesTemporalesComponent } from './components/tabla-clientes-temporales/tabla-clientes-temporales.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +15,9 @@ import { MetricasComponent } from './components/metricas/metricas.component';
     FooterComponent,
     DashTableComponent,
     ModalEmpleadosComponent,
-    MetricasComponent
+    MetricasComponent,
+    TablaClientesComponent,
+    TablaClientesTemporalesComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +28,9 @@ import { MetricasComponent } from './components/metricas/metricas.component';
     FooterComponent,
     DashTableComponent,
     ModalEmpleadosComponent,
-    MetricasComponent
+    MetricasComponent,
+    TablaClientesComponent,
+    TablaClientesTemporalesComponent
   ],
 })
 export class SharedModule { }

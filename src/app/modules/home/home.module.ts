@@ -7,6 +7,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { DashBoardComponent } from './dashboard/dashboard.component';
 import { RegistroUsuarioComponent } from './registros/registro-usuario/registro-usuario.component';
 import { RegistroEmpleadoComponent } from './registros/registro-empleado/registro-empleado.component';
+import { RegistrarClientesComponent } from './registros/registrar-clientes/registrar-clientes.component';
+import { ClientesComponent } from './registros/components/clientes/clientes.component';
+import { ClientesTemporalesComponent } from './registros/components/clientes-temporales/clientes-temporales.component';
 
 
 
@@ -15,7 +18,10 @@ import { RegistroEmpleadoComponent } from './registros/registro-empleado/registr
     LoginComponent,
     DashBoardComponent,
     RegistroUsuarioComponent,
-    RegistroEmpleadoComponent
+    RegistroEmpleadoComponent,
+    RegistrarClientesComponent,
+    ClientesComponent,
+    ClientesTemporalesComponent
   ],
   imports: [
     CommonModule,

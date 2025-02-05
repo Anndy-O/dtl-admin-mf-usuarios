@@ -1,4 +1,4 @@
-import { Oficina } from './oficina';
+import { Oficina } from './oficina.interface';
 
 export interface Empleado {
   id: number;
@@ -7,7 +7,7 @@ export interface Empleado {
   apellido: string;
   codigoEmpleado: string;
   cargo: string;
-  fechaIngreso: string; // Usar formato ISO para fechas
+  fechaIngreso: string;
   perfilUsuario: string;
   ciudadZona: string;
   correo: string;
